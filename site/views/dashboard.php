@@ -19,7 +19,8 @@ $data = DashboardData::build(
     $filterId('fMonth'),
 );
 
-$money = static fn(float $v): string => number_format($v, 2, ',', '.') . ' €';
+$money     = static fn(float $v): string => number_format($v, 2, ',', '.') . ' €';
+$catColors = $data->catColors; // for views/partials/category-badge.php
 
 require_once 'views/partials/header.php';
 ?>

@@ -28,9 +28,11 @@ final class DashboardData {
      * @param Expense[]                       $recent           latest five bookings in scope
      * @param array<int, ExpenseCategory[]>   $recentCategories categories per recent booking id
      * @param array<int, string>              $vehicleNames     vehicle id => display name
+     * @param array<int, string>              $catColors        category id => hex colour (for badges)
      */
     private function __construct(
         public readonly array $vehicles,
+        public readonly array $catColors,
         public readonly array $years,
         public readonly array $availableMonths,
         public readonly ?int $vehicleId,
@@ -174,6 +176,7 @@ final class DashboardData {
 
         return new self(
             vehicles:         $vehicles,
+            catColors:        $catColors,
             years:            $years,
             availableMonths:  $availableMonths,
             vehicleId:        $vehicleId,

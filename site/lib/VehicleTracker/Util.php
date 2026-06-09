@@ -74,7 +74,7 @@ class Util {
         if ($value === '') {
             return null;
         }
-        $date   = \DateTimeImmutable::createFromFormat('Y-m-d', $value);
+        $date   = \DateTimeImmutable::createFromFormat('!Y-m-d', $value);
         $errors = \DateTimeImmutable::getLastErrors();
         if ($date === false || (is_array($errors) && ($errors['warning_count'] > 0 || $errors['error_count'] > 0))) {
             return null;
