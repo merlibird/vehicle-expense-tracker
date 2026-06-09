@@ -1,0 +1,24 @@
+name: vehicle-expense-tracker
+type: php
+docroot: "site/"
+php_version: "8.5"
+webserver_type: apache-fpm
+router_http_port: "80"
+router_https_port: "443"
+xdebug_enabled: false
+additional_hostnames: []
+additional_fqdns: []
+database:
+  type: mariadb
+  version: "10.11"
+use_dns_when_possible: true
+composer_version: "2"
+web_environment: []
+nodejs_version: "18"
+working_dir:
+  web: /var/www/html/site/
+timezone: Europe/Vienna
+
+hooks:
+  post-start:
+    - exec: "mysql -uroot -proot db -e 'SELECT 1 FROM user LIMIT 1;' 2>/dev/null || mysql -uroot -proot db < /var/www/html/etc/sql/vehicle-expense-tracker.sql"
