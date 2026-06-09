@@ -42,6 +42,9 @@ $offset    = ($page - 1) * $perPage;
 $expenses  = $expenseDao->getByUserIdFilteredPaged($userId, $fVehicle, $fYear, $fMonth, $fCategory, $perPage, $offset);
 $paging    = new PagingResult($expenses, $offset, $perPage, $total);
 
+// Categories for every expense on this page in one query (avoids an N+1 in the table).
+$categoriesByExpense = $categoryDao->getByExpenseIds(array_map(static fn($e) => $e->getId(), $expenses));
+
 // Carry the active filters into the page links.
 $pagingBaseParams = ['view' => 'expenses'];
 if ($fVehicle !== null)  { $pagingBaseParams['fVehicle']  = $fVehicle; }
@@ -155,7 +158,7 @@ require_once 'views/partials/header.php';
             <tbody>
             <?php foreach ($expenses as $expense): ?>
                 <?php
-                $expenseCategories = $categoryDao->getByExpenseId($expense->getId());
+                $expenseCategories = $categoriesByExpense[$expense->getId()] ?? [];
                 $isFuel            = $expense instanceof FuelExpense;
                 ?>
                 <tr>

@@ -9,13 +9,13 @@ declare(strict_types=1);
 <footer class="footer mt-auto py-3 border-top">
     <div class="container text-center small">
         <nav class="mb-1">
-            <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" class="link-secondary text-decoration-none">Über uns</a>
+            <a href="#" class="link-secondary text-decoration-none">Über uns</a>
             <span class="text-muted mx-1">|</span>
-            <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" class="link-secondary text-decoration-none">Stellenangebote</a>
+            <a href="#" class="link-secondary text-decoration-none">Stellenangebote</a>
             <span class="text-muted mx-1">|</span>
-            <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" class="link-secondary text-decoration-none">Presse</a>
+            <a href="#" class="link-secondary text-decoration-none">Presse</a>
             <span class="text-muted mx-1">|</span>
-            <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" class="link-secondary text-decoration-none">Impressum</a>
+            <a href="#" class="link-secondary text-decoration-none">Impressum</a>
         </nav>
         <small class="text-muted">&copy; 2026 Fahrzeugkosten-Tracker</small>
     </div>

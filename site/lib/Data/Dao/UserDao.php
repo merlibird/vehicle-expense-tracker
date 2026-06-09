@@ -18,7 +18,7 @@ class UserDao implements IUserDao {
 
     public function getById(int $id): ?User {
         $res = $this->runner->run(
-            'SELECT id, user_name, password_hash, first_name, last_name, profile_pic, role, is_active FROM user WHERE id = ?',
+            'SELECT id, user_name, password_hash, first_name, last_name, role, is_active FROM user WHERE id = ?',
             [$id]
         );
         $row = $res->fetchObject();
@@ -27,7 +27,7 @@ class UserDao implements IUserDao {
 
     public function getAll(): array {
         $res   = $this->runner->run(
-            'SELECT id, user_name, password_hash, first_name, last_name, profile_pic, role, is_active FROM user ORDER BY user_name'
+            'SELECT id, user_name, password_hash, first_name, last_name, role, is_active FROM user ORDER BY user_name'
         );
         $users = [];
         while ($row = $res->fetchObject()) {
@@ -38,17 +38,17 @@ class UserDao implements IUserDao {
 
     public function getByUserName(string $userName): ?User {
         $res = $this->runner->run(
-            'SELECT id, user_name, password_hash, first_name, last_name, profile_pic, role, is_active FROM user WHERE user_name = ?',
+            'SELECT id, user_name, password_hash, first_name, last_name, role, is_active FROM user WHERE user_name = ?',
             [$userName]
         );
         $row = $res->fetchObject();
         return $row ? $this->build($row) : null;
     }
 
-    public function create(string $userName, string $passwordHash, string $firstName, string $lastName, ?string $profilePic, Role $role): int {
+    public function create(string $userName, string $passwordHash, string $firstName, string $lastName, Role $role): int {
         $this->runner->run(
-            'INSERT INTO user (user_name, password_hash, first_name, last_name, profile_pic, role, is_active) VALUES (?, ?, ?, ?, ?, ?, 1)',
-            [$userName, $passwordHash, $firstName, $lastName, $profilePic, $role->value]
+            'INSERT INTO user (user_name, password_hash, first_name, last_name, role, is_active) VALUES (?, ?, ?, ?, ?, 1)',
+            [$userName, $passwordHash, $firstName, $lastName, $role->value]
         );
         return $this->runner->lastInsertId();
     }
@@ -75,7 +75,6 @@ class UserDao implements IUserDao {
             $row->password_hash,
             $row->first_name,
             $row->last_name,
-            $row->profile_pic,
             Role::from($row->role),
             (bool)(int)$row->is_active,
         );

@@ -6,6 +6,7 @@ namespace Data\Dao;
 use VehicleTracker\LogEntry;
 
 interface ILogDao {
+    
     public function create(?int $userId, string $username, string $ipAddress, string $action): void;
 
     /** @return LogEntry[] */

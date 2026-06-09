@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Seite-1" id="UezZz9jqD2Z3NFxxftbq">
-    <mxGraphModel dx="1006" dy="674" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+    <mxGraphModel dx="1059" dy="709" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -32,7 +32,7 @@
           <mxGeometry height="26" width="140" y="208" as="geometry" />
         </mxCell>
         <mxCell id="ET-stsIOIIrf8Gb0JUyJ-6" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="user" vertex="1">
-          <mxGeometry height="286" width="150" x="700" y="160" as="geometry" />
+          <mxGeometry height="260" width="150" x="700" y="160" as="geometry" />
         </mxCell>
         <mxCell id="ET-stsIOIIrf8Gb0JUyJ-14" parent="ET-stsIOIIrf8Gb0JUyJ-6" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ id: int" vertex="1">
           <mxGeometry height="26" width="150" y="26" as="geometry" />
@@ -49,20 +49,17 @@
         <mxCell id="ET-stsIOIIrf8Gb0JUyJ-8" parent="ET-stsIOIIrf8Gb0JUyJ-6" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ last_name: string" vertex="1">
           <mxGeometry height="26" width="150" y="130" as="geometry" />
         </mxCell>
-        <mxCell id="ET-stsIOIIrf8Gb0JUyJ-9" parent="ET-stsIOIIrf8Gb0JUyJ-6" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ profile_pic: string" vertex="1">
+        <mxCell id="ET-stsIOIIrf8Gb0JUyJ-19" parent="ET-stsIOIIrf8Gb0JUyJ-6" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ role: enum" vertex="1">
           <mxGeometry height="26" width="150" y="156" as="geometry" />
         </mxCell>
-        <mxCell id="ET-stsIOIIrf8Gb0JUyJ-19" parent="ET-stsIOIIrf8Gb0JUyJ-6" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ role: enum" vertex="1">
+        <mxCell id="ET-stsIOIIrf8Gb0JUyJ-51" parent="ET-stsIOIIrf8Gb0JUyJ-6" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ is_active: bool" vertex="1">
           <mxGeometry height="26" width="150" y="182" as="geometry" />
         </mxCell>
-        <mxCell id="ET-stsIOIIrf8Gb0JUyJ-51" parent="ET-stsIOIIrf8Gb0JUyJ-6" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ is_active: bool" vertex="1">
+        <mxCell id="ET-stsIOIIrf8Gb0JUyJ-31" parent="ET-stsIOIIrf8Gb0JUyJ-6" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ created_at: datetime" vertex="1">
           <mxGeometry height="26" width="150" y="208" as="geometry" />
         </mxCell>
-        <mxCell id="ET-stsIOIIrf8Gb0JUyJ-31" parent="ET-stsIOIIrf8Gb0JUyJ-6" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ created_at: datetime" vertex="1">
-          <mxGeometry height="26" width="150" y="234" as="geometry" />
-        </mxCell>
         <mxCell id="ET-stsIOIIrf8Gb0JUyJ-32" parent="ET-stsIOIIrf8Gb0JUyJ-6" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ updated_at: datetime" vertex="1">
-          <mxGeometry height="26" width="150" y="260" as="geometry" />
+          <mxGeometry height="26" width="150" y="234" as="geometry" />
         </mxCell>
         <mxCell id="ET-stsIOIIrf8Gb0JUyJ-20" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="expense" vertex="1">
           <mxGeometry height="234" width="140" x="260" y="160" as="geometry" />
@@ -178,7 +175,7 @@
             <mxPoint x="920" y="360" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ET-stsIOIIrf8Gb0JUyJ-69" connectable="0" parent="ET-stsIOIIrf8Gb0JUyJ-68" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="1" vertex="1">
+        <mxCell id="ET-stsIOIIrf8Gb0JUyJ-69" connectable="0" parent="ET-stsIOIIrf8Gb0JUyJ-68" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="0..1" vertex="1">
           <mxGeometry relative="1" x="-1" as="geometry" />
         </mxCell>
         <mxCell id="ET-stsIOIIrf8Gb0JUyJ-70" connectable="0" parent="ET-stsIOIIrf8Gb0JUyJ-68" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="0..*" vertex="1">

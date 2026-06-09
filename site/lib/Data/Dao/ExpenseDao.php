@@ -28,6 +28,24 @@ class ExpenseDao implements IExpenseDao {
         return $expenses;
     }
 
+    public function getByVehicleIds(array $vehicleIds): array {
+        if ($vehicleIds === []) {
+            return [];
+        }
+        $placeholders = implode(', ', array_fill(0, count($vehicleIds), '?'));
+        $res = $this->runner->run(
+            'SELECT id, vehicle_id, date, cost, note, mileage, is_active, is_fuel_expense, liters, price_per_liter '
+            . 'FROM expense WHERE vehicle_id IN (' . $placeholders . ') AND is_active = 1 ORDER BY date DESC',
+            array_values($vehicleIds)
+        );
+        $grouped = [];
+        while ($row = $res->fetchObject()) {
+            $expense = $this->build($row);
+            $grouped[$expense->getVehicleId()][] = $expense;
+        }
+        return $grouped;
+    }
+
     public function getByUserIdFiltered(int $userId, ?int $vehicleId, ?int $year, ?int $month, ?int $categoryId): array {
         [$fromWhere, $params] = $this->buildFilter($userId, $vehicleId, $year, $month, $categoryId);
         $sql = 'SELECT DISTINCT e.id, e.vehicle_id, e.date, e.cost, e.note, e.mileage, e.is_active, e.is_fuel_expense, e.liters, e.price_per_liter '

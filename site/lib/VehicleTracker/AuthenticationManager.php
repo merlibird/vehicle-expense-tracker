@@ -38,14 +38,13 @@ class AuthenticationManager {
         }
 
         $hash   = password_hash($password, PASSWORD_DEFAULT);
-        $userId = $this->userDao->create($userName, $hash, $firstName, $lastName, null, Role::User);
+        $userId = $this->userDao->create($userName, $hash, $firstName, $lastName, Role::User);
 
         $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
         $this->logDao->create($userId, $userName, $ip, 'REGISTER_SUCCESS');
         return $userId;
     }
 
-    /** Verifies the current password, then stores a new hash. Returns false if the current password is wrong. */
     public function changePassword(int $userId, string $currentPassword, string $newPassword): bool {
         $user = $this->userDao->getById($userId);
         if ($user === null || !password_verify($currentPassword, $user->getPasswordHash())) {
@@ -80,7 +79,6 @@ class AuthenticationManager {
         return null;
     }
 
-    /** Returns the logged-in user, or redirects to the login view. */
     public function requireUser(): User {
         $user = $this->getCurrentUser();
         if ($user === null) {
@@ -89,7 +87,6 @@ class AuthenticationManager {
         return $user;
     }
 
-    /** Returns the logged-in admin, or redirects (to login if anonymous, to dashboard if not admin). */
     public function requireAdmin(): User {
         $user = $this->requireUser();
         if (!$user->isAdmin()) {

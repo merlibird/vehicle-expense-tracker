@@ -42,6 +42,24 @@ class CategoryDao implements ICategoryDao {
         return $categories;
     }
 
+    public function getByExpenseIds(array $expenseIds): array {
+        if ($expenseIds === []) {
+            return [];
+        }
+        $placeholders = implode(', ', array_fill(0, count($expenseIds), '?'));
+        $res = $this->runner->run(
+            'SELECT m.expense_id AS expense_id, c.id, c.name FROM expense_category c '
+            . 'JOIN expense_category_map m ON c.id = m.category_id '
+            . 'WHERE m.expense_id IN (' . $placeholders . ') ORDER BY c.name',
+            array_values($expenseIds)
+        );
+        $grouped = [];
+        while ($row = $res->fetchObject()) {
+            $grouped[(int)$row->expense_id][] = new ExpenseCategory((int)$row->id, $row->name);
+        }
+        return $grouped;
+    }
+
     public function setForExpense(int $expenseId, array $categoryIds): void {
         $this->runner->beginTransaction();
         try {

@@ -11,7 +11,6 @@ class User extends Entity {
         private readonly string $passwordHash,
         private readonly string $firstName,
         private readonly string $lastName,
-        private readonly ?string $profilePic,
         private readonly Role $role,
         private readonly bool $isActive,
     ) {
@@ -22,7 +21,6 @@ class User extends Entity {
     public function getPasswordHash(): string { return $this->passwordHash; }
     public function getFirstName(): string   { return $this->firstName; }
     public function getLastName(): string    { return $this->lastName; }
-    public function getProfilePic(): ?string { return $this->profilePic; }
     public function getRole(): Role          { return $this->role; }
     public function isActive(): bool         { return $this->isActive; }
 

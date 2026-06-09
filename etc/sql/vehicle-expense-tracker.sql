@@ -17,7 +17,6 @@ CREATE TABLE user (
     password_hash VARCHAR(255)         NOT NULL,
     first_name    VARCHAR(100)         NOT NULL,
     last_name     VARCHAR(100)         NOT NULL,
-    profile_pic   VARCHAR(255)             NULL,
     role          ENUM('user','admin') NOT NULL DEFAULT 'user',
     is_active     TINYINT(1)           NOT NULL DEFAULT 1,
     created_at    DATETIME             NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -86,7 +85,7 @@ CREATE TABLE expense_category_map (
     PRIMARY KEY (expense_id, category_id),
     CONSTRAINT fk_map_expense FOREIGN KEY (expense_id) REFERENCES expense (id) ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT fk_map_category FOREIGN KEY (category_id) REFERENCES expense_category (id) ON UPDATE CASCADE ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ---------------------------------------------------------------------
 --  log_entry
@@ -108,11 +107,11 @@ CREATE TABLE log_entry (
  
 -- Users (Password for all users: test1234)
 INSERT INTO user
-    (id,user_name,password_hash,first_name,last_name,profile_pic,role,is_active) VALUES
-    (1,'admin',      '$2y$10$ip0e5KAsYABHvPni55PQAOcjY4hHForfvqG3Y7Zr9rH7.xb4UUjT6','System','Admin', NULL,'admin',1),
-    (2,'maxmuster',  '$2y$10$ip0e5KAsYABHvPni55PQAOcjY4hHForfvqG3Y7Zr9rH7.xb4UUjT6','Max','Mustermann','max.jpg','user',1),
-    (3,'erikamuster','$2y$10$ip0e5KAsYABHvPni55PQAOcjY4hHForfvqG3Y7Zr9rH7.xb4UUjT6','Erika','Musterfrau',NULL,'user',1),
-    (4,'inaktiv',    '$2y$10$ip0e5KAsYABHvPni55PQAOcjY4hHForfvqG3Y7Zr9rH7.xb4UUjT6','Inaktiver','Nutzer',NULL,'user',0);
+    (id,user_name,password_hash,first_name,last_name,role,is_active) VALUES
+    (1,'admin',      '$2y$10$ip0e5KAsYABHvPni55PQAOcjY4hHForfvqG3Y7Zr9rH7.xb4UUjT6','System','Admin','admin',1),
+    (2,'maxmuster',  '$2y$10$ip0e5KAsYABHvPni55PQAOcjY4hHForfvqG3Y7Zr9rH7.xb4UUjT6','Max','Mustermann','user',1),
+    (3,'erikamuster','$2y$10$ip0e5KAsYABHvPni55PQAOcjY4hHForfvqG3Y7Zr9rH7.xb4UUjT6','Erika','Musterfrau','user',1),
+    (4,'inaktiv',    '$2y$10$ip0e5KAsYABHvPni55PQAOcjY4hHForfvqG3Y7Zr9rH7.xb4UUjT6','Inaktiver','Nutzer','user',0);
  
 -- Categories
 INSERT INTO expense_category (id,name) VALUES
