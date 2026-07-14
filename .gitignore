@@ -1,0 +1,47 @@
+# === OS ===
+.DS_Store
+Thumbs.db
+
+# === Editor / IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# === DDEV ===
+# Der .ddev-Ordner wird versioniert; lokale/generierte Dateien darin nicht.
+.ddev/.gitignore
+.ddev/*.yaml.bak
+.ddev/db_snapshots/
+.ddev/.dbimageBuild/
+.ddev/.ddev-docker-*.yaml
+.ddev/.global_commands/
+.ddev/import.yaml
+.ddev/import-db/
+.ddev/homeadditions/
+.ddev/providers/
+.ddev/sequelpro.spf
+.ddev/**/*_norouter.yaml
+
+# === PHP / Composer ===
+/vendor/
+composer.phar
+.phpunit.result.cache
+
+# === Lokale Konfiguration / Secrets ===
+.env
+.env.*
+!.env.example
+*.local.php
+config.local.php
+
+# === Logs & Temp ===
+*.log
+/tmp/
+/temp/
+
+# === Datenbank-Dumps ===
+*.sql.gz
+*.sqlite
+*.sqlite3
